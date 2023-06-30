@@ -1,0 +1,100 @@
+@host = http://localhost:4000
+
+### sign up
+POST {{host}}/signup
+Content-Type: application/json
+
+{
+  "user": 
+    {
+      "email": "carloshdelreal@gmail.com",
+      "password": "123456"
+    }
+}
+
+### login
+# @name login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+  "user": 
+    {
+      "email": "carloshdelreal@gmail.com",
+      "password": "123456"
+    }
+}
+
+### current user
+GET {{host}}/current_user
+Content-Type: application/json
+Authorization: {{login.response.headers.Authorization}}
+
+
+### login wrong credentials
+POST {{host}}/login
+Content-Type: application/json
+
+{
+  "user": 
+    {
+      "email": "carloshdelreal@gmail.com",
+      "password": "wrongpass"
+    }
+}
+
+### sign_out
+DELETE {{host}}/logout
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
+
+### get planets
+GET {{host}}/planets
+Authorization: {{login.response.headers.Authorization}}
+
+### get people
+GET {{host}}/people
+Authorization: {{login.response.headers.Authorization}}
+### create people
+POST {{host}}/people
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
+
+{
+  "person": {
+    "name": "Carlos",
+    "birth_year": "1987",
+    "eye_color": "brown",
+    "gender": "male",
+    "hair_color": "blond",
+    "height": "183",
+    "mass": "93",
+    "skin_color": "fair",
+    "homeworld": null,
+    "planet_id": 1,
+    "created": null,
+    "edited": null
+  }
+}
+
+### update
+PUT {{host}}/people/85
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
+
+{
+  "person": {
+    "name": "David"
+  }
+}
+
+
+### delete people
+DELETE {{host}}/people/84
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
+
+### show people
+GET {{host}}/people/85
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
