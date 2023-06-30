@@ -38,7 +38,7 @@ class FilmsController < ApplicationController
   def show
     film = Film.find_by(id: params['id'])
     if film
-      render json: { film: film }, status: :ok
+      render json: { film: FilmSerializer.new(film).serializable_hash[:data] }, status: :ok
     else
       render json: { message: 'there was an error getting the film'}, status: :bad_request
     end

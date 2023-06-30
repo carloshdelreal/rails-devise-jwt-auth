@@ -38,8 +38,9 @@ class PeopleController < ApplicationController
 
   def show
     person = Person.find_by(id: params['id'])
+
     if person
-      render json: { person: person }, status: :ok
+      render json: PersonSerializer.new(person).serializable_hash[:data], status: :ok
     else
       render json: { message: 'there was an error getting the person'}, status: :bad_request
     end
