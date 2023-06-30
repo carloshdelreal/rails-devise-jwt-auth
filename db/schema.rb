@@ -10,7 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_27_015053) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_30_171234) do
+  create_table "film_people", force: :cascade do |t|
+    t.integer "film_id", null: false
+    t.integer "people_id", null: false
+    t.index ["film_id"], name: "index_film_people_on_film_id"
+    t.index ["people_id"], name: "index_film_people_on_people_id"
+  end
+
+  create_table "film_planets", force: :cascade do |t|
+    t.integer "film_id", null: false
+    t.integer "planet_id", null: false
+    t.index ["film_id"], name: "index_film_planets_on_film_id"
+    t.index ["planet_id"], name: "index_film_planets_on_planet_id"
+  end
+
+  create_table "films", force: :cascade do |t|
+    t.string "title"
+    t.integer "episode_id"
+    t.string "opening_crawl"
+    t.string "director"
+    t.string "producer"
+    t.time "release_date"
+    t.time "created"
+    t.time "edited"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.string "birth_year"
+    t.string "eye_color"
+    t.string "gender"
+    t.string "hair_color"
+    t.string "height"
+    t.string "mass"
+    t.string "skin_color"
+    t.integer "homeworld"
+    t.integer "planet_id", null: false
+    t.time "created"
+    t.time "edited"
+    t.index ["planet_id"], name: "index_people_on_planet_id"
+  end
+
+  create_table "planets", force: :cascade do |t|
+    t.string "name"
+    t.string "diameter"
+    t.string "rotation_period"
+    t.string "orbital_period"
+    t.string "gravity"
+    t.string "population"
+    t.string "climate"
+    t.string "terrain"
+    t.string "surface_water"
+    t.time "created"
+    t.time "edited"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -25,4 +80,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_27_015053) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "film_people", "films"
+  add_foreign_key "film_people", "people", column: "people_id"
+  add_foreign_key "film_planets", "films"
+  add_foreign_key "film_planets", "planets"
+  add_foreign_key "people", "planets"
 end
