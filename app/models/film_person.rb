@@ -1,4 +1,4 @@
 class FilmPerson < ApplicationRecord
   belongs_to :film
-  belongs_to :people
+  belongs_to :person
 end
