@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
   
-  resources :planets
-
+  ### People
   post 'people', to: 'people#create'
   put 'people/:id', to: 'people#update'
   get 'people', to: 'people#index'
   get 'people/:id', to: 'people#show'
   delete 'people/:id', to: 'people#destroy'
+
+  ### Planets
+  post 'planets', to: 'planets#create'
+  put 'planets/:id', to: 'planets#update'
+  get 'planets', to: 'planets#index'
+  get 'planets/:id', to: 'planets#show'
+  delete 'planets/:id', to: 'planets#destroy'
 
   get 'current_user', to: 'current_user#index'
   devise_for :users, path: '', path_names: {

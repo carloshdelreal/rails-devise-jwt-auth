@@ -1,0 +1,65 @@
+@host = http://localhost:8000
+
+### login
+# @name login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+  "user": 
+    {
+      "email": "carloshdelreal@gmail.com",
+      "password": "123456"
+    }
+}
+
+### current user
+GET {{host}}/current_user
+Content-Type: application/json
+Authorization: {{login.response.headers.Authorization}}
+
+### get planets
+GET {{host}}/planets
+Authorization: {{login.response.headers.Authorization}}
+### create planets
+POST {{host}}/planets
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
+
+{
+  "planet": {
+    "name": "Tatooine Carlos Moon",
+    "diameter": "1465",
+    "rotation_period": "23",
+    "orbital_period": "304",
+    "gravity": "1 standard",
+    "population": "200000",
+    "climate": "arid",
+    "terrain": "desert",
+    "surface_water": "1",
+    "created": null,
+    "edited": null
+  }
+}
+
+### update
+PUT {{host}}/planets/84
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
+
+{
+  "person": {
+    "name": "David"
+  }
+}
+
+
+### delete planets
+DELETE {{host}}/planets/84
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
+
+### show planets
+GET {{host}}/planets/82
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
