@@ -44,7 +44,7 @@ Content-Type: application/json
 }
 
 ### update
-PUT {{host}}/people/85
+PUT {{host}}/people/84
 Authorization: {{login.response.headers.Authorization}}
 Content-Type: application/json
 
@@ -61,6 +61,6 @@ Authorization: {{login.response.headers.Authorization}}
 Content-Type: application/json
 
 ### show people
-GET {{host}}/people/85
+GET {{host}}/people/82
 Authorization: {{login.response.headers.Authorization}}
 Content-Type: application/json

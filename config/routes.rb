@@ -14,6 +14,13 @@ Rails.application.routes.draw do
   get 'planets/:id', to: 'planets#show'
   delete 'planets/:id', to: 'planets#destroy'
 
+  ### Films
+  post 'films', to: 'films#create'
+  put 'films/:id', to: 'films#update'
+  get 'films', to: 'films#index'
+  get 'films/:id', to: 'films#show'
+  delete 'films/:id', to: 'films#destroy'
+
   get 'current_user', to: 'current_user#index'
   devise_for :users, path: '', path_names: {
     sign_in: 'login',

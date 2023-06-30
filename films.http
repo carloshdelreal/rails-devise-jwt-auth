@@ -1,0 +1,62 @@
+@host = http://localhost:8000
+
+### login
+# @name login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+  "user": 
+    {
+      "email": "carloshdelreal@gmail.com",
+      "password": "123456"
+    }
+}
+
+### current user
+GET {{host}}/current_user
+Content-Type: application/json
+Authorization: {{login.response.headers.Authorization}}
+
+### get films
+GET {{host}}/films
+Authorization: {{login.response.headers.Authorization}}
+### create films
+POST {{host}}/films
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
+
+{
+  "film": {
+    "title": "A New Hope for carlos del real",
+    "episode_id": 4,
+    "opening_crawl": "It is a period of civil war.\nRebel spaceships, striking\nfrom a hidden base, have won\ntheir first victory against\nthe evil Galactic Empire.\n\nDuring the battle, Rebel\nspies managed to steal secret\nplans to the Empire's\nultimate weapon, the DEATH\nSTAR, an armored space\nstation with enough power\nto destroy an entire planet.\n\nPursued by the Empire's\nsinister agents, Princess\nLeia races home aboard her\nstarship, custodian of the\nstolen plans that can save her\npeople and restore\nfreedom to the galaxy....",
+    "director": "George Lucas",
+    "producer": "Gary Kurtz, Rick McCallum",
+    "release_date": null,
+    "created": null,
+    "edited": null
+  }
+}
+
+### update
+PUT {{host}}/films/7
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
+
+{
+  "film": {
+    "title": "An Old Hope"
+  }
+}
+
+
+### delete films
+DELETE {{host}}/films/7
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
+
+### show films
+GET {{host}}/films/6
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
