@@ -21,6 +21,20 @@ Rails.application.routes.draw do
   get 'films/:id', to: 'films#show'
   delete 'films/:id', to: 'films#destroy'
 
+  ### FilmPlanets
+  post 'film_planets', to: 'film_planets#create'
+  put 'film_planets/:id', to: 'film_planets#update'
+  get 'film_planets', to: 'film_planets#index'
+  get 'film_planets/:id', to: 'film_planets#show'
+  delete 'film_planets/:id', to: 'film_planets#destroy'
+
+  ### FilmPerson
+  post 'film_people', to: 'film_people#create'
+  put 'film_people/:id', to: 'film_people#update'
+  get 'film_people', to: 'film_people#index'
+  get 'film_people/:id', to: 'film_people#show'
+  delete 'film_people/:id', to: 'film_people#destroy'
+
   get 'current_user', to: 'current_user#index'
   devise_for :users, path: '', path_names: {
     sign_in: 'login',

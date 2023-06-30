@@ -1,0 +1,57 @@
+@host = http://localhost:8000
+
+### login
+# @name login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+  "user": 
+    {
+      "email": "carloshdelreal@gmail.com",
+      "password": "123456"
+    }
+}
+
+### current user
+GET {{host}}/current_user
+Content-Type: application/json
+Authorization: {{login.response.headers.Authorization}}
+
+### get film_planets
+GET {{host}}/film_planets
+Authorization: {{login.response.headers.Authorization}}
+### create film_planets
+POST {{host}}/film_planets
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
+
+{
+  "film_planet": {
+    "film_id": 1,
+    "planet_id": 2
+  }
+}
+
+### update
+PUT {{host}}/film_planets/34
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
+
+{
+  "film_planet": {
+    "film_id": 1,
+    "planet_id": 3
+  }
+}
+
+
+### delete film_planets
+DELETE {{host}}/film_planets/34
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
+
+### show film_planets
+GET {{host}}/film_planets/33
+Authorization: {{login.response.headers.Authorization}}
+Content-Type: application/json
