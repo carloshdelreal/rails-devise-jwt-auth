@@ -13,7 +13,7 @@ unless Rails.env.production?
   # end
 
   # sql = File.read('create_star_wars.sql')
-  sql = File.read('populate_star_wars.sql')
+  sql = File.read('db/populate_star_wars.sql')
   statements = sql.split(/;$/)
   statements.pop
 
