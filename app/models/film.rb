@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Film < ApplicationRecord
   has_many :film_people
   has_many :people, through: :film_people, class_name: 'Person'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePlanets < ActiveRecord::Migration[7.0]
   def change
     create_table :planets do |t|
@@ -12,8 +14,6 @@ class CreatePlanets < ActiveRecord::Migration[7.0]
       t.string :surface_water
       t.time :created
       t.time :edited
-
-      
     end
   end
 end

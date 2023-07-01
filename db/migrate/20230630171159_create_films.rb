@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateFilms < ActiveRecord::Migration[7.0]
   def change
     create_table :films do |t|
@@ -9,8 +11,6 @@ class CreateFilms < ActiveRecord::Migration[7.0]
       t.time :release_date
       t.time :created
       t.time :edited
-
-      
     end
   end
 end
