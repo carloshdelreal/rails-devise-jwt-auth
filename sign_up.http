@@ -47,3 +47,23 @@ Content-Type: application/json
 DELETE {{host}}/logout
 Authorization: {{login.response.headers.Authorization}}
 Content-Type: application/json
+
+
+### forgot password
+POST {{host}}/password/forgot
+Content-Type: application/json
+
+{
+  "email": "carloshdelreal@gmail.com"
+}
+
+
+### reset password
+POST {{host}}/password/reset
+Content-Type: application/json
+
+{
+  "email": "carloshdelreal@gmail.com",
+  "password": "newpass",
+  "token": "3f7a446b4862389ae73a"
+}

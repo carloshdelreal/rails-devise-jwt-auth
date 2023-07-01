@@ -35,6 +35,10 @@ Rails.application.routes.draw do
   get 'film_people/:id', to: 'film_people#show'
   delete 'film_people/:id', to: 'film_people#destroy'
 
+  ### passwords
+  post 'password/forgot', to: 'passwords#forgot'
+  post 'password/reset', to: 'passwords#reset'
+
   get 'current_user', to: 'current_user#index'
   devise_for :users, path: '', path_names: {
     sign_in: 'login',
