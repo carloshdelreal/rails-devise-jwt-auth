@@ -16,6 +16,10 @@ the api will run in port 8000
 
 ## Testing
 
+- run `bundle exec rspec`
+
+you will see tests for the presence of valid factory and the definition of the relationships
+
 
 ### Used generate models commads
 

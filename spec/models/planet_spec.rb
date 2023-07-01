@@ -13,6 +13,7 @@ RSpec.describe Planet, type: :model do
     describe 'associations' do
       it { is_expected.to have_many(:films) }
       it { is_expected.to have_many(:film_planets) }
+      it { is_expected.to have_many(:people) }
     end
   end
 end
