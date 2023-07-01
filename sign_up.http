@@ -64,6 +64,6 @@ Content-Type: application/json
 
 {
   "email": "carloshdelreal@gmail.com",
-  "password": "newpass",
-  "token": "3f7a446b4862389ae73a"
+  "password": "123456",
+  "token": "a0afe1a34bc313e6ce0e"
 }

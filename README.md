@@ -13,3 +13,13 @@ To use this template,
 6. Run `rails db:create db:migrate`
 7. Run `rails s` to start your api server on port 4000
 8. Test out your [API using Postman](https://www.postman.com/orange-capsule-983544/workspace/rails-jwt)
+
+### generate models commads
+
+```bash
+rails g model planet name:string diameter:string rotation_period:string orbital_period:string gravity:string population:string climate:string terrain:string surface_water:string created:time edited:time
+rails g model film title:string episode_id:integer opening_crawl:string director:string producer:string release_date:time created:time edited:time
+rails g model people name:string birth_year:string eye_color:string gender:string hair_color:string height:string mass:string skin_color:string homeworld:integer created:time edited:time planet:references
+rails g model film_people film:references person:references
+rails g model film_planet film:references planet:references
+```
