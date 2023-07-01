@@ -21,6 +21,13 @@ the api will run in port 8000
 you will see tests for the presence of valid factory and the definition of the relationships
 
 
+## Linter - Rubocop
+
+to check and fix linting issues with rubocop
+
+- run `rubocop -A`
+
+
 ### Used generate models commads
 
 ```bash
