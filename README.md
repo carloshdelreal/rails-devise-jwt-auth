@@ -1,5 +1,15 @@
-# Rails Devise JWT Auth for API Only Mode (Template)
+# Rails Devise JWT Auth for API 
 
+## requirements
+
+- Ruby 3.2.0
+- Rails  7.0.4.2
+
+## quick start
+
+- run `bundle install`
+- run `rails db:drop && rails db:create && rails db:migrate && rails db:seed`
+- run `rails s`
 
 ## Usage
 
@@ -12,9 +22,11 @@ To use this template,
 5. Do a global find and replace for `rails_devise_jwt_template` with `your_project_name`
 6. Run `rails db:create db:migrate`
 7. Run `rails s` to start your api server on port 4000
-8. Test out your [API using Postman](https://www.postman.com/orange-capsule-983544/workspace/rails-jwt)
 
-### generate models commads
+
+
+
+### Used generate models commads
 
 ```bash
 rails g model planet name:string diameter:string rotation_period:string orbital_period:string gravity:string population:string climate:string terrain:string surface_water:string created:time edited:time
